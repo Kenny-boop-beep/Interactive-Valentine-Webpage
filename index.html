@@ -3,14 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Be My Valentine?</title>
+    <title>Be My Valentine? ❤️</title>
     <style>
-        body { text-align: center; font-family: 'Arial', sans-serif; background-color: #ffeef2; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; margin: 0; overflow: hidden; }
-        .container { max-width: 400px; }
-        img { width: 200px; border-radius: 15px; margin-bottom: 20px; }
-        h1 { color: #d63384; font-size: 24px; }
-        .buttons { display: flex; justify-content: center; align-items: center; gap: 20px; margin-top: 20px; flex-wrap: wrap; }
-        button { border: none; border-radius: 10px; cursor: pointer; transition: all 0.3s ease; font-weight: bold; }
+        body { 
+            text-align: center; 
+            font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif; 
+            background-color: #ffeef2; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            justify-content: center; 
+            height: 100vh; 
+            margin: 0; 
+            overflow: hidden; 
+        }
+        .container { width: 90%; max-width: 400px; }
+        /* 调整图片大小以适应手机 */
+        img { 
+            width: 80%; 
+            max-width: 280px; 
+            border-radius: 20px; 
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        h1 { color: #d63384; font-size: 1.5rem; margin: 10px 0; }
+        .buttons { 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            gap: 15px; 
+            margin-top: 30px; 
+        }
+        button { 
+            border: none; 
+            border-radius: 12px; 
+            cursor: pointer; 
+            transition: all 0.2s ease-in-out; 
+            font-weight: bold; 
+        }
         #yesBtn { background-color: #4caf50; color: white; padding: 15px 30px; font-size: 18px; }
         #noBtn { background-color: #f44336; color: white; padding: 15px 30px; font-size: 18px; }
     </style>
@@ -18,8 +48,8 @@
 <body>
 
 <div class="container" id="main-content">
-    <img id="header-img" src="Valentines Day Love GIF">
-    <h1 id="question">Will you be my Valentine?</h1>
+    <img id="header-img" src="Valentines Day Love GIF.gif" alt="Romantic Image">
+    <h1 id="question">Will you be my valentine?</h1>
     
     <div class="buttons" id="btn-group">
         <button id="yesBtn" onclick="celebrate()">Yes</button>
@@ -36,8 +66,9 @@
         clickCount++;
         // Yes 按钮变大
         yesSize += 25; 
-        document.getElementById('yesBtn').style.fontSize = yesSize + 'px';
-        document.getElementById('yesBtn').style.padding = (yesSize/2) + 'px ' + (yesSize) + 'px';
+        const yesBtn = document.getElementById('yesBtn');
+        yesBtn.style.fontSize = yesSize + 'px';
+        yesBtn.style.padding = (yesSize/2) + 'px ' + (yesSize) + 'px';
         
         // No 按钮缩小
         noSize = Math.max(0, noSize - 4);
@@ -45,31 +76,25 @@
         noBtn.style.fontSize = noSize + 'px';
         noBtn.style.padding = (noSize/2) + 'px ' + (noSize) + 'px';
         
-        if (noSize <= 2) {
-            noBtn.style.display = 'none'; // 彻底消失
-            document.getElementById('yesBtn').style.width = '100vw'; // 占据全屏宽度逻辑（可选）
+        if (noSize <= 4) {
+            noBtn.style.display = 'none';
         }
 
-        // 可选：点击 No 时更换文案增加趣味性
-        const texts = ["Are you sure?", "Really??", "Think again!", "Pwease...", "Don't do this!"];
+        // 增加一些幽默的文案
+        const texts = ["Are you sure?", "Really??", "Think again!", "Pwease...", "Don't do this! 😭"];
         if (clickCount < texts.length) {
             document.getElementById('question').innerText = texts[clickCount];
         }
     }
 
     function celebrate() {
+        // 第二张图片：Happy So Excited GIF
         document.getElementById('main-content').innerHTML = `
-            <img src="Happy So Excited GIF">
-            <h1>YAYY!!! ❤️</h1>
+            <img src="Happy So Excited GIF.gif" alt="Happy">
+            <h1>YAYY!!! ❤️❤️❤️</h1>
         `;
     }
 </script>
 
 </body>
-
 </html>
-
-
-
-
-
